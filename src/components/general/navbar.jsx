@@ -11,7 +11,7 @@ const Navbar = () => {
         <NavLink className="nav-item nav-link" to="/import-xls">
           Importar XLS
         </NavLink>
-        <NavLink className="nav-item nav-link" to="/consult-moves">
+        <NavLink className="nav-item nav-link" to="/movements">
           Consultar movimentos
         </NavLink>
       </div>
