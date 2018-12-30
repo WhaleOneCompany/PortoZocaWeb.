@@ -1,29 +1,18 @@
 import React, { Component } from "react";
 import FormatTravel from "../travel/format";
+import HttpBillOfLading from "./http";
 
 class BillOfLadingsView extends Component {
   state = {
-    billOfLadings: [
-      {
-        _id: 1,
-        billOfLading: "BLXXXXX001",
-        informedQuantity: 15,
-        conferredQuantity: 10
-      },
-      {
-        _id: 2,
-        billOfLading: "BLXXXXX002",
-        informedQuantity: 20,
-        conferredQuantity: 13
-      },
-      {
-        _id: 3,
-        billOfLading: "BLXXXXX003",
-        informedQuantity: 30,
-        conferredQuantity: 30
-      }
-    ]
+    http: null,
+    billOfLadings: null
   };
+
+  componentWillMount() {
+    this.state.http = new HttpBillOfLading();
+    this.state.billOfLadings = this.state.http.get();
+  }
+
   render() {
     const { billOfLadings } = this.state;
     const { travel, onReturnToTravel, onConsult } = this.props;

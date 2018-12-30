@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
 
 class BillOfLadingImport extends Component {
   state = {
@@ -16,11 +15,7 @@ class BillOfLadingImport extends Component {
     this.setState({ form });
   };
 
-  handleSubmit = () => {
-    axios
-      .get("http://localhost:8090/v1/import-xls")
-      .then(response => console.log(response));
-  };
+  handleSubmit = () => {};
 
   createInput({ name, type, accept }) {
     const { form } = this.state;

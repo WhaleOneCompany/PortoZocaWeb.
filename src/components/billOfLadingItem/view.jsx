@@ -1,22 +1,18 @@
 import React, { Component } from "react";
 import FormatTravel from "../travel/format";
 import FormatBillOfLading from "../billOfLading/format";
+import HttpBillOfLadingItems from "./http";
 
 class billOfLadingItemsView extends Component {
   state = {
-    billOfLadingItems: [
-      {
-        _id: 1,
-        dimension: "150 x 150",
-        time: "28/12/2018 18:30:15"
-      },
-      {
-        _id: 2,
-        dimension: "200 x 150",
-        time: "28/12/2018 18:30:15"
-      }
-    ]
+    billOfLadingItems: null
   };
+
+  componentWillMount() {
+    this.state.http = new HttpBillOfLadingItems();
+    this.state.billOfLadingItems = this.state.http.get();
+  }
+
   render() {
     const { billOfLadingItems } = this.state;
     const {
