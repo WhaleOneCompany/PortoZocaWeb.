@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 
-const FormatMovement = props => {
+const FormatBillOfLading = props => {
   const { object, onClick } = props;
   const { billOfLading, informedQuantity, conferredQuantity } = object;
   return (
@@ -10,4 +10,4 @@ const FormatMovement = props => {
   );
 };
 
-export default FormatMovement;
+export default FormatBillOfLading;

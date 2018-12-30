@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 const FormatTravel = props => {
   const { object, onClick } = props;
