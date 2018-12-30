@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import FormatTravel from "./../data-format/formatTravel";
+import FormatTravel from "../travel/format";
 
-class MovementsView extends Component {
+class BillOfLadingsView extends Component {
   state = {
-    movements: [
+    billOfLadings: [
       {
         _id: 1,
         billOfLading: "BLXXXXX001",
@@ -25,11 +25,11 @@ class MovementsView extends Component {
     ]
   };
   render() {
-    const { movements } = this.state;
-    const { travel, onReturnToTravels, onConsult } = this.props;
+    const { billOfLadings } = this.state;
+    const { travel, onReturnToTravel, onConsult } = this.props;
     return (
       <main className="container">
-        <FormatTravel object={travel} onClick={onReturnToTravels} />
+        <FormatTravel object={travel} onClick={onReturnToTravel} />
         <table className="table">
           <thead>
             <tr>
@@ -39,16 +39,16 @@ class MovementsView extends Component {
             </tr>
           </thead>
           <tbody>
-            {movements.map(movement => (
-              <tr key={movement._id}>
-                <td>{movement.billOfLading}</td>
-                <td>{`${movement.conferredQuantity}/${
-                  movement.informedQuantity
+            {billOfLadings.map(billOfLading => (
+              <tr key={billOfLading._id}>
+                <td>{billOfLading.billOfLading}</td>
+                <td>{`${billOfLading.conferredQuantity}/${
+                  billOfLading.informedQuantity
                 }`}</td>
                 <td>
                   <button
                     className="btn btn-primary"
-                    onClick={() => onConsult(movement)}
+                    onClick={() => onConsult(billOfLading)}
                   >
                     Consultar
                   </button>
@@ -62,4 +62,4 @@ class MovementsView extends Component {
   }
 }
 
-export default MovementsView;
+export default BillOfLadingsView;

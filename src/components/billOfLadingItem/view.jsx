@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import FormatMovement from "../data-format/formatMovement";
-import FormatTravel from "./../data-format/formatTravel";
+import FormatTravel from "../travel/format";
+import FormatBillOfLading from "../billOfLading/format";
 
-class ConferencesView extends Component {
+class billOfLadingItemsView extends Component {
   state = {
-    conferences: [
+    billOfLadingItems: [
       {
         _id: 1,
         dimension: "150 x 150",
@@ -18,17 +18,20 @@ class ConferencesView extends Component {
     ]
   };
   render() {
-    const { conferences } = this.state;
+    const { billOfLadingItems } = this.state;
     const {
       travel,
-      onReturnToTravels,
-      movement,
-      onReturnToMovements
+      onReturnToTravel,
+      billOfLading,
+      onReturnToBillOfLading
     } = this.props;
     return (
       <main className="container">
-        <FormatTravel object={travel} onClick={onReturnToTravels} />
-        <FormatMovement object={movement} onClick={onReturnToMovements} />
+        <FormatTravel object={travel} onClick={onReturnToTravel} />
+        <FormatBillOfLading
+          object={billOfLading}
+          onClick={onReturnToBillOfLading}
+        />
         <table className="table">
           <thead>
             <tr>
@@ -38,10 +41,10 @@ class ConferencesView extends Component {
             </tr>
           </thead>
           <tbody>
-            {conferences.map(conference => (
-              <tr key={conference._id}>
-                <td>{conference.time}</td>
-                <td>{conference.dimension}</td>
+            {billOfLadingItems.map(billOfLadingItem => (
+              <tr key={billOfLadingItem._id}>
+                <td>{billOfLadingItem.time}</td>
+                <td>{billOfLadingItem.dimension}</td>
                 <td>
                   <button className="btn btn-primary">Observações</button>{" "}
                   <button className="btn btn-primary">Imagens</button>
@@ -55,4 +58,4 @@ class ConferencesView extends Component {
   }
 }
 
-export default ConferencesView;
+export default billOfLadingItemsView;

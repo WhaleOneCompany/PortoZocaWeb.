@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-class ImportXLS extends Component {
+class BillOfLadingImport extends Component {
   state = {
     form: {
       ship: "",
@@ -17,10 +17,9 @@ class ImportXLS extends Component {
   };
 
   handleSubmit = () => {
-    // axios
-    //   .get("https://randomuser.me/api")
-    //   .then(response => (form["travel"] = JSON.stringify(response)));
-    console.log("Submit form", this.state.form);
+    axios
+      .get("http://localhost:8090/v1/import-xls")
+      .then(response => console.log(response));
   };
 
   createInput({ name, type, accept }) {
@@ -99,4 +98,4 @@ class ImportXLS extends Component {
   }
 }
 
-export default ImportXLS;
+export default BillOfLadingImport;

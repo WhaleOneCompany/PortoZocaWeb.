@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import axios from "axios";
 
-class Travels extends Component {
+class TravelView extends Component {
   state = {
     travels: [
       {
@@ -24,6 +25,11 @@ class Travels extends Component {
   render() {
     const { travels } = this.state;
     const { onConsult } = this.props;
+
+    // axios
+    //   .get("http://localhost:8090/v1/sample")
+    //   .then(response => console.log(response));
+
     return (
       <main className="container">
         <table className="table">
@@ -62,4 +68,4 @@ class Travels extends Component {
   }
 }
 
-export default Travels;
+export default TravelView;

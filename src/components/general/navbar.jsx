@@ -8,11 +8,11 @@ const Navbar = () => {
         OSBRAS
       </Link>
       <div className="navbar-nav">
-        <NavLink className="nav-item nav-link" to="/import-xls">
+        <NavLink className="nav-item nav-link" to="/bill-of-lading/import">
           Importar XLS
         </NavLink>
-        <NavLink className="nav-item nav-link" to="/movements">
-          Consultar movimentos
+        <NavLink className="nav-item nav-link" to="/bill-of-lading/viewer">
+          Consultar Bill of Ladings
         </NavLink>
       </div>
     </nav>

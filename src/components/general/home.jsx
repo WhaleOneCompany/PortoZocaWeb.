@@ -7,7 +7,7 @@ const Home = () => {
       <h2>João Victor Antunes Perin</h2>
       <h2>Jonas Rafael Duarte dos Santos</h2>
       <h2>Lucas Vanduir Spaniol</h2>
-      <h2>Vitória</h2>
+      <h2>Vitória Rosa de Oliveira</h2>
     </div>
   );
 };
