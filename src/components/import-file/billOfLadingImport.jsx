@@ -57,7 +57,8 @@ class BillOfLadingImport extends Component {
   render() {
     const formStyle = {
       textAlign: "right",
-      width: "50%"
+      width: "50%",
+      minWidth: "300px"
     };
     const labelStyle = {};
     const fields = [
