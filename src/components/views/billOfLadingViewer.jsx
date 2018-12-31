@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import TravelView from "../travel/view";
-import BillOfLadingView from "../billOfLading/view";
-import BillOfLadingItemView from "../billOfLadingItem/view";
+import ViewTravel from "../travel/viewTravel";
+import ViewBillOfLading from "../billOfLading/viewBillOfLading";
+import ViewBillOfLadingItem from "../billOfLadingItem/viewBillOfLadingItem";
 
 class BillOfLadingViewer extends Component {
   state = {
@@ -29,7 +29,7 @@ class BillOfLadingViewer extends Component {
     const { travel, billOfLading } = this.state;
     if (billOfLading !== null) {
       return (
-        <BillOfLadingItemView
+        <ViewBillOfLadingItem
           travel={travel}
           onReturnToTravel={this.handleReturnToTravelView}
           billOfLading={billOfLading}
@@ -38,14 +38,14 @@ class BillOfLadingViewer extends Component {
       );
     } else if (travel !== null) {
       return (
-        <BillOfLadingView
+        <ViewBillOfLading
           travel={travel}
           onReturnToTravel={this.handleReturnToTravelView}
           onConsult={this.handleConsultBillOfLadingItem}
         />
       );
     } else {
-      return <TravelView onConsult={this.handleConsultBillOfLading} />;
+      return <ViewTravel onConsult={this.handleConsultBillOfLading} />;
     }
   }
 }

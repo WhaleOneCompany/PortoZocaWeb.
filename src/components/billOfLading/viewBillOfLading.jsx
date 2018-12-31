@@ -1,16 +1,17 @@
 import React, { Component } from "react";
-import FormatTravel from "../travel/format";
-import HttpBillOfLading from "./http";
+import FormatTravel from "../travel/formatTravel";
+import HttpBillOfLading from "./httpBillOfLading";
 
-class BillOfLadingsView extends Component {
+class ViewBillOfLadings extends Component {
   state = {
     http: null,
-    billOfLadings: null
+    billOfLadings: []
   };
 
-  componentWillMount() {
-    this.state.http = new HttpBillOfLading();
-    this.state.billOfLadings = this.state.http.get();
+  async componentDidMount() {
+    const http = new HttpBillOfLading();
+    const { data } = await http.get();
+    this.setState({ http, billOfLadings: data.content });
   }
 
   render() {
@@ -23,17 +24,21 @@ class BillOfLadingsView extends Component {
           <thead>
             <tr>
               <th>BL</th>
-              <th>Quantidade conferida/informada</th>
+              <th>Cliente</th>
+              <th>Qtd.Total</th>
+              <th>Qtd.Conferida</th>
+              <th>Qtd.Restante</th>
               <th>Funções</th>
             </tr>
           </thead>
           <tbody>
             {billOfLadings.map(billOfLading => (
-              <tr key={billOfLading._id}>
-                <td>{billOfLading.billOfLading}</td>
-                <td>{`${billOfLading.conferredQuantity}/${
-                  billOfLading.informedQuantity
-                }`}</td>
+              <tr key={billOfLading.id}>
+                <td>{billOfLading.bl}</td>
+                <td>{billOfLading.customer}</td>
+                <td>100</td>
+                <td>80</td>
+                <td>20</td>
                 <td>
                   <button
                     className="btn btn-primary"
@@ -51,4 +56,4 @@ class BillOfLadingsView extends Component {
   }
 }
 
-export default BillOfLadingsView;
+export default ViewBillOfLadings;

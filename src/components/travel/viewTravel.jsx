@@ -1,14 +1,18 @@
 import React, { Component } from "react";
-import HttpTravel from "./http";
+import HttpTravel from "./httpTravel";
+import http from "./../http/http";
+import { formatDate } from "./../general/formatDate";
 
-class TravelView extends Component {
+class ViewTravel extends Component {
   state = {
-    travels: null
+    http: null,
+    travels: []
   };
 
-  componentWillMount() {
-    this.state.http = new HttpTravel();
-    this.state.travels = this.state.http.get();
+  async componentDidMount() {
+    const http = new HttpTravel();
+    const { data } = await http.get();
+    this.setState({ http, travels: data.content });
   }
 
   render() {
@@ -21,7 +25,6 @@ class TravelView extends Component {
             <tr>
               <th>Viagem</th>
               <th>Navio</th>
-              <th>Cliente</th>
               <th>Data/Hora</th>
               <th>Status</th>
               <th>Funções</th>
@@ -29,11 +32,10 @@ class TravelView extends Component {
           </thead>
           <tbody>
             {travels.map(travel => (
-              <tr key={travel._id}>
+              <tr key={travel.id}>
                 <td>{travel.travel}</td>
                 <td>{travel.ship}</td>
-                <td>{travel.custommer}</td>
-                <td>{travel.time}</td>
+                <td>{formatDate(travel.importationDate)}</td>
                 <td>{travel.status}</td>
                 <td>
                   <button
@@ -52,4 +54,4 @@ class TravelView extends Component {
   }
 }
 
-export default TravelView;
+export default ViewTravel;

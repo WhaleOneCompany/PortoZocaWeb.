@@ -5,7 +5,7 @@ const FormatTravel = props => {
   const { travel, ship, custommer } = object;
   return (
     <div onClick={onClick}>
-      Viagem: {travel} Navio: {ship} Cliente: {custommer}
+      Viagem: {travel} Navio: {ship}
     </div>
   );
 };

@@ -1,5 +1,17 @@
 import axios from "axios";
 
-class http {}
+const server = "http://localhost:8090/v1";
+
+class http {
+  state = {
+    response: null
+  };
+
+  get(func, params) {
+    return axios.get(`${server}${func}`, {
+      params: params
+    });
+  }
+}
 
 export default http;
