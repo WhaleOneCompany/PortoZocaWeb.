@@ -6,7 +6,9 @@ class HttpBillOfLadingItem {
   }
 
   get = bl => {
-    return this.http.get("/itemsOfBl", { bl: bl });
+    return this.http.get("/itemsOfBl", {
+      items: [{ key: "bl", op: "EQ", value: bl.id }]
+    });
   };
 }
 

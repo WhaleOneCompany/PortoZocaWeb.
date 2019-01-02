@@ -6,7 +6,9 @@ class HttpBillOfLading {
   }
 
   get = travel => {
-    return this.http.get("/billOfLading");
+    return this.http.get("/billOfLading", {
+      items: [{ key: "travel", op: "EQ", value: travel.id }]
+    });
   };
 }
 

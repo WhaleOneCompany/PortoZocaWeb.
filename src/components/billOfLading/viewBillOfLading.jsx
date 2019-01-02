@@ -10,7 +10,7 @@ class ViewBillOfLadings extends Component {
 
   async componentDidMount() {
     const http = new HttpBillOfLading();
-    const { data } = await http.get();
+    const { data } = await http.get(this.props.travel);
     this.setState({ http, billOfLadings: data.content });
   }
 
